@@ -1,0 +1,10 @@
+{
+  "sewingpwaApp": {
+    "Category": {
+      "null": "",
+      "KIDS": "KIDS",
+      "MAN": "MAN",
+      "WOMAN": "WOMAN"
+    }
+  }
+}

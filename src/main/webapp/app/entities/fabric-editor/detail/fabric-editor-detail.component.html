@@ -1,0 +1,59 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fabricEditor">
+      <h2 data-cy="fabricEditorDetailsHeading"><span jhiTranslate="sewingpwaApp.fabricEditor.detail.title">Fabric Editor</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fabricEditor.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="sewingpwaApp.fabricEditor.name">Name</span></dt>
+        <dd>
+          <span>{{ fabricEditor.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="sewingpwaApp.fabricEditor.printDate">Print Date</span></dt>
+        <dd>
+          <span>{{ fabricEditor.printDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="sewingpwaApp.fabricEditor.number">Number</span></dt>
+        <dd>
+          <span>{{ fabricEditor.number }}</span>
+        </dd>
+        <dt><span jhiTranslate="sewingpwaApp.fabricEditor.editor">Editor</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'sewingpwaApp.Editors.' + fabricEditor.editor }}">{{ fabricEditor.editor }}</span>
+        </dd>
+        <dt><span jhiTranslate="sewingpwaApp.fabricEditor.language">Language</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'sewingpwaApp.Language.' + fabricEditor.language }}">{{ fabricEditor.language }}</span>
+        </dd>
+        <dt><span jhiTranslate="sewingpwaApp.fabricEditor.price">Price</span></dt>
+        <dd>
+          <span>{{ fabricEditor.price }}</span>
+        </dd>
+        <dt><span jhiTranslate="sewingpwaApp.fabricEditor.image">Image</span></dt>
+        <dd>
+          <div *ngIf="fabricEditor.image">
+            <a (click)="openFile(fabricEditor.image, fabricEditor.imageContentType)" jhiTranslate="entity.action.open">Open</a>
+            {{ fabricEditor.imageContentType }}, {{ byteSize(fabricEditor.image) }}
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/fabric-editor', fabricEditor.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
