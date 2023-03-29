@@ -123,62 +123,66 @@
           </div>
         </div>
 
-        <table>
-          <p>
-            <a class="btn btn-primary" data-bs-toggle='collapse' href="#collapseExample" role="button" aria-expanded="true" aria-controls="collapseExample">
-              Colors
-            </a>
-          </p>
+        <div>
+<!--          <button type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">-->
+<!--            Collase Colors-->
+<!--          </button>-->
+          <table class="table">
+<!--            <tbody id="collapseExample" class="collapse">-->
+            <tr>
+              <td>
+                <div class="input-group mb-3">
+                  <label class="input-group-text" jhiTranslate="sewingpwaApp.fabric.colorName" for="field_colorName">Color Name</label>
+                  <input type="text" class="form-control" name="colorName" id="field_colorName" data-cy="colorName" formControlName="colorName" />
+                </div>
+              </td>
+              <td>
+                <div class="input-group-sm mb-3">
+                  <label class="input-group-text" jhiTranslate="sewingpwaApp.fabric.color1" for="field_color1">Color 1</label>
+                  <input type="color" class="input-group-lg" name="color1" id="field_color1" data-cy="color1" formControlName="color1" value="#FFFFFF" />
+                  <div *ngIf="editForm.get('color1')!.invalid && (editForm.get('color1')!.dirty || editForm.get('color1')!.touched)">
+                    <small class="form-text text-danger" *ngIf="editForm.get('color1')?.errors?.required" jhiTranslate="entity.validation.required">
+                      This field is required.
+                    </small>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="input-group-sm mb-3">
+                  <label class="input-group-text" jhiTranslate="sewingpwaApp.fabric.color2" for="field_color2">Color 2</label>
+                  <input type="color" class="input-group-lg" name="color2" id="field_color2" data-cy="color2" formControlName="color2" value="#FFFFFF" />
+                </div>
+              </td>
+              <td>
+                <div class="input-group-sm mb-3">
+                  <label class="input-group-text" jhiTranslate="sewingpwaApp.fabric.color3" for="field_color3">Color 3</label>
+                  <input type="color" class="input-group-lg" name="color3" id="field_color3" data-cy="color3" formControlName="color3" value="#FFFFFF" />
+                </div>
+              </td>
+            </tr>
+<!--            </tbody>-->
+          </table>
+        </div>
 
-          <div id='collapseExample' class='collapse'>
-            <div class='card card-body'>
-              <!--              <h2 style='margin-bottom: 20px; margin-top: 40px'>Colors</h2>-->
-              <tr>
-                <td>
-                  <div class='input-group mb-3'>
-                    <label class='input-group-text' jhiTranslate='sewingpwaApp.fabric.colorName'
-                           for='field_colorName'>Color
-                      Name</label>
-                    <input type='text' class='form-control' name='colorName' id='field_colorName'
-                           data-cy='colorName'
-                           formControlName='colorName' />
-                  </div>
-                </td>
-                <td>
-                  <div class='input-group-sm mb-3'>
-                    <label class='input-group-text' jhiTranslate='sewingpwaApp.fabric.color1' for='field_color1'>Color
-                      1</label>
-                    <input type='color' class='input-group-lg' name='color1' id='field_color1' data-cy='color1'
-                           formControlName='color1' value='#FFFFFF' />
-                    <div
-                      *ngIf="editForm.get('color1')!.invalid && (editForm.get('color1')!.dirty || editForm.get('color1')!.touched)">
-                      <small class='form-text text-danger' *ngIf="editForm.get('color1')?.errors?.required"
-                             jhiTranslate='entity.validation.required'>
-                        This field is required.
-                      </small>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class='input-group-sm mb-3'>
-                    <label class='input-group-text' jhiTranslate='sewingpwaApp.fabric.color2' for='field_color2'>Color
-                      2</label>
-                    <input type='color' class='input-group-lg' name='color2' id='field_color2' data-cy='color2'
-                           formControlName='color2' value='#FFFFFF' />
-                  </div>
-                </td>
-                <td>
-                  <div class='input-group-sm mb-3'>
-                    <label class='input-group-text' jhiTranslate='sewingpwaApp.fabric.color3' for='field_color3'>Color
-                      3</label>
-                    <input type='color' class='input-group-lg' name='color3' id='field_color3' data-cy='color3'
-                           formControlName='color3' value='#FFFFFF' />
-                  </div>
-                </td>
-              </tr>
-            </div>
-          </div>
-        </table>
+<!--        <p>Colors collapse</p>-->
+<!--        <button type="button" class="collapsible">Open Collapse</button>-->
+<!--        <div class="content">-->
+<!--          <p>Open all section</p>-->
+<!--        </div>-->
+
+<!--        <p>Collapse</p>-->
+<!--        <button type="button" class="collapsible">section 1</button>-->
+<!--        <div class="content">-->
+<!--          <p>test</p>-->
+<!--        </div>-->
+<!--        <button type="button" class="collapsible">section 2</button>-->
+<!--        <div class="content">-->
+<!--          <p>test</p>-->
+<!--        </div>-->
+<!--        <button type="button" class="collapsible">section 3</button>-->
+<!--        <div class="content">-->
+<!--          <p>test</p>-->
+<!--        </div>-->
 
         <table class='example-full-width' cellspacing='0'>
           <h2 style='margin-bottom: 20px; margin-top: 40px'>Characteristics</h2>
@@ -590,3 +594,23 @@
     </form>
   </div>
 </div>
+
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+    const collapsibleButtons = document.getElementsByClassName('collapsible');
+    for (let i = 0; i < collapsibleButtons.length; i++) {
+      collapsibleButtons[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        const content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  });
+</script>
+
+
+
