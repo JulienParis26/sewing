@@ -6,9 +6,15 @@
 Bootstrap tweaks
 ===============================================================*/
 
+.btn-home {
+  justify-content: flex-end;
+  color: #0d5aa7;
+}
+
 .example-full-width {
   width: 100%;
 }
+
 tr,
 td {
   padding-right: 15px;

@@ -7,6 +7,9 @@ import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 import { Authority } from 'app/config/authority.constants';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access.service';
+import { FabricComponent } from './entities/fabric/list/fabric.component';
+import { FabricSellerComponent } from './entities/fabric-seller/list/fabric-seller.component';
+import { PatronComponent } from './entities/patron/list/patron.component';
 
 @NgModule({
   imports: [
@@ -24,6 +27,9 @@ import { UserRouteAccessService } from 'app/core/auth/user-route-access.service'
           path: '',
           loadChildren: () => import(`./entities/entity-routing.module`).then(m => m.EntityRoutingModule),
         },
+        { path: 'fabric', component: FabricComponent },
+        { path: 'fabric-seller', component: FabricSellerComponent },
+        { path: 'patron', component: PatronComponent},
         navbarRoute,
         ...errorRoute,
       ],

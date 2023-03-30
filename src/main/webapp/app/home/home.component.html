@@ -4,6 +4,12 @@
   </div>
 
   <div class="col-md-9">
+
+    <!-- Lien vers les entités FABRIC, SELLER et PATRON -->
+    <button class="btn-home" routerLink="/fabric">Fabric</button>
+    <button class="btn-home" routerLink="/fabric-seller">Seller</button>
+    <button class="btn-home" routerLink="/patron">Patron</button>
+
     <h1 class="display-4"><span jhiTranslate="home.title">Welcome, Java Hipster!</span> (Sewingpwa)</h1>
 
     <p class="lead" jhiTranslate="home.subtitle">This is your homepage</p>
@@ -71,55 +77,61 @@
     </p>
   </div>
 </div>
-<!DOCTYPE html>
-<html>
-<body>
-<!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-<div id="player"></div>
 
-<script>
-  // 2. This code loads the IFrame Player API code asynchronously.
-  const tag = document.createElement('script');
+<!--<a routerLink="/fabric">Go to Fabric</a>-->
+<!--<a routerLink="/fabric-seller">Go to Fabric Seller</a>-->
+<!--<a routerLink="/patron">Go to Patron</a>-->
 
-  tag.src = "https://www.youtube.com/iframe_api";
-  const firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  // 3. This function creates an <iframe> (and YouTube player)
-  //    after the API code downloads.
-  let player;
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<body>-->
+<!--&lt;!&ndash; 1. The <iframe> (and video player) will replace this <div> tag. &ndash;&gt;-->
+<!--<div id="player"></div>-->
 
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      height: '360',
-      width: '640',
-      videoId: 'M7lc1UVf-VE',
-      events: {
-        'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange
-      }
-    });
-  }
+<!--<script>-->
+<!--  // 2. This code loads the IFrame Player API code asynchronously.-->
+<!--  const tag = document.createElement('script');-->
 
-  // 4. The API will call this function when the video player is ready.
-  function onPlayerReady(event) {
-    event.target.playVideo();
-  }
+<!--  tag.src = "https://www.youtube.com/iframe_api";-->
+<!--  const firstScriptTag = document.getElementsByTagName('script')[0];-->
+<!--  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);-->
 
-  // 5. The API calls this function when the player's state changes.
-  //    The function indicates that when playing a video (state=1),
-  //    the player should play for six seconds and then stop.
-  let done = false;
+<!--  // 3. This function creates an <iframe> (and YouTube player)-->
+<!--  //    after the API code downloads.-->
+<!--  let player;-->
 
-  function onPlayerStateChange(event) {
-    if (event.data == YT.PlayerState.PLAYING && !done) {
-      setTimeout(stopVideo, 6000);
-      done = true;
-    }
-  }
-  function stopVideo() {
-    player.stopVideo();
-  }
-</script>
-</body>
-</html>
+<!--  function onYouTubeIframeAPIReady() {-->
+<!--    player = new YT.Player('player', {-->
+<!--      height: '360',-->
+<!--      width: '640',-->
+<!--      videoId: 'M7lc1UVf-VE',-->
+<!--      events: {-->
+<!--        'onReady': onPlayerReady,-->
+<!--        'onStateChange': onPlayerStateChange-->
+<!--      }-->
+<!--    });-->
+<!--  }-->
+
+<!--  // 4. The API will call this function when the video player is ready.-->
+<!--  function onPlayerReady(event) {-->
+<!--    event.target.playVideo();-->
+<!--  }-->
+
+<!--  // 5. The API calls this function when the player's state changes.-->
+<!--  //    The function indicates that when playing a video (state=1),-->
+<!--  //    the player should play for six seconds and then stop.-->
+<!--  let done = false;-->
+
+<!--  function onPlayerStateChange(event) {-->
+<!--    if (event.data == YT.PlayerState.PLAYING && !done) {-->
+<!--      setTimeout(stopVideo, 6000);-->
+<!--      done = true;-->
+<!--    }-->
+<!--  }-->
+<!--  function stopVideo() {-->
+<!--    player.stopVideo();-->
+<!--  }-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
